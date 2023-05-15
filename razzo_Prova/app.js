@@ -17,7 +17,8 @@ const alertDiv = '<div class="alert alert-danger" role="alert">';
 
 
 
-function Check() {
+
+function validate() {
     if ((textEmail.value == "") || (textEmail.value == "undefined")) // controllo se è vuota
     {
         ErrorBox.innerHTML = alertDiv + '<strong>Attento manca la mail</strong>' + '</div>';
@@ -34,20 +35,28 @@ function Check() {
             psw.style = "border: 2px red solid; background-color:#DC6161";
             return false;
         }
-        else{
-            if(sha)
+        else {
+            if (textEmail.value != "Prova@Prova") {
+                ErrorBox.innerHTML = alertDiv + '<strong>Email sbagliata</strong>' + '</div>';
+                textEmail.style = "border: 2px red solid; background-color:#DC6161;";
+                return false
+
+            } else {
+                if (psw.value == "prova") {
+                    console.log("verificato");
+                    return true;
+                }
+                else {
+                    ErrorBox.innerHTML = alertDiv + '<strong>Password sbagliata</strong>' + '</div>';
+                    psw.style = "border: 2px red solid; background-color:#DC6161";
+                    return false;
+                }
+            }
+
+
         }
     }
-    documento.modulo.submit();
 
-}
-
-function submit(){
-
-}
-
-function validateSignIn() {
-    // funzione che controlla se ho le credenziali giuste
 }
 
 

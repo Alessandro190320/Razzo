@@ -16,13 +16,13 @@
 <body>
     <!-- FORM -->
     <div class="container" style="max-width: 520px; margin-top:15%;">
-        <h1>Sign In</h1>
-        <form action="./setting.html" method="GET" onsubmit="return validate();">
-            <div class="mb-3">
+        <h1>Registrati</h1>
+        <form onsubmit="return validate();" method="get" action="./setting.html">
+            <div class=" mb-3">
                 <div id="ErrorBox"></div>
                 <div class="row">
                     <div class="col-11">
-                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                        <label for="exampleInputEmail1" class="form-label">Indrizzo Email</label>
                     </div>
                     <div class="col-1">
                         <ion-icon name="mail"></ion-icon>
@@ -42,19 +42,14 @@
                 </div>
                 <input type="password" class="form-control" id="exampleInputPassword1">
             </div>
-            <div class="mb-3 form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Remember me</label>
-            </div>
             <div class="row">
                 <div class="col-10">
-                    <button id="Submit" type="submit" class="btn btn-primary">Submit</button>
+                    <button id="Submit" type="submit" class="btn btn-primary">Registrati</button>
                 </div>
-                <div class="col-2"><a href="Login.html">Login</a></div>
+                <div class="col-2"><a href="Login.html">Accedi</a></div>
             </div>
         </form>
     </div>
-
     <script type="text/javascript" src="app.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
