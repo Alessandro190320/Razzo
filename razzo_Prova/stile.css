@@ -1,0 +1,44 @@
+h1 {
+    margin-top: 5%;
+    font-family: 'tohama';
+    font-weight: bold;
+    text-align: center;
+
+}
+
+body {
+    background-image: url("./image/razzo3\ copy.jpg");
+    background-size: 1920px 1080px;
+    color: white;
+
+}
+
+@media screen and (max-width:600px) {
+    body {
+        background-image: url("./image/razzo.jpg");
+        background-size: 100% 250%;
+    }
+
+    h1 {
+        color: white;
+    }
+
+    /*Bottone */
+    #Submit {
+        width: 100%;
+        background: #000;
+    }
+}
+
+.card {
+    width: 18rem;
+    margin-top: 10%;
+    margin-left: 15%;
+}
+
+.btn-dark {
+    height: 100%;
+    width: 100%;
+    border: solid white 2px;
+    font-weight: bolder;
+}
