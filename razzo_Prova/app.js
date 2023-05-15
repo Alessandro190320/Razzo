@@ -43,7 +43,7 @@ function validate() {
 
             } else {
                 if (psw.value == "prova") {
-                    console.log("verificato");
+                    //console.log("verificato");
                     return true;
                 }
                 else {
