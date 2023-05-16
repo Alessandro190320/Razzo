@@ -74,6 +74,24 @@ function takeoff() {
         a.href = "./icon/favicon-next.ico";
     }, 2000);
 }
+
+let state = navigator.bluetooth.getAvailability().then((available) => {
+    if (available) {
+        console.log("On");
+        navigator.bluetooth.requestDevice({
+            acceptAllDevices: true
+        }).then((list) => {
+            console.log(list);
+        })
+    }
+    else
+        console.log("off");
+});
+
+let prova = navigator.bluetooth.getDevices();
+console.log(state);
+console.log(prova);
+
 takeoff();
 setInterval(takeoff, 3000);
 
