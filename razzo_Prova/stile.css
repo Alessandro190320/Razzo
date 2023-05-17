@@ -13,6 +13,10 @@ body {
 
 }
 
+.container {
+    margin-bottom: 0%;
+}
+
 @media screen and (max-width:600px) {
     body {
         background-image: url("./image/razzo.jpg");
@@ -26,7 +30,7 @@ body {
     /*Bottone */
     #Submit {
         width: 100%;
-        background: #000;
+        background: #03c02c;
     }
 }
 

@@ -18,7 +18,7 @@
     <div class="container text-center">
         <h1>SETTING COMANDI RAZZO</h1>
     </div>
-    <div class="container ">
+    <div class="container-sm">
         <div class="row" style="margin-top: 5%;">
             <div class="col-md-5 col-sm-12" style="align-items: center;">
                 <!--card check luci-->
@@ -97,19 +97,12 @@
             <div class="col-md-5 col-sm-12">
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title text-center">MODALITÀ PREDEFINITE</h5>
+                        <h5 class="card-title text-center">MODALITÀ CRAZY</h5>
                         <p class="card-text">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                CRAZY
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                2
-                            </label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Default switch checkbox
+                                input</label>
                         </div>
                         </p>
                     </div>
@@ -121,17 +114,9 @@
                     <div class="card-body">
                         <h5 class="card-title text-center">SUONO</h5>
                         <p class="card-text">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                ON
-                            </label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
-                            <label class="form-check-label" for="flexRadioDefault1">
-                                OFF
-                            </label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Traccia Audio</label>
                         </div>
                         </p>
                     </div>
@@ -141,7 +126,7 @@
         <div class="row" style="margin-top: 10%;">
             <div class="col-4"></div>
             <div class="col-4">
-                <button type="button" class="btn btn-dark">
+                <button type="button" class="btn btn-dark" onclick="bluetoothConnetion()">
                     Start
                 </button>
             </div>
