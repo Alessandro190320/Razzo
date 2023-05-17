@@ -12,9 +12,12 @@ function timer() {
 const textEmail = document.getElementById("exampleInputEmail1"); // textEmail
 const psw = document.getElementById("exampleInputPassword1");
 const ErrorBox = document.getElementById("ErrorBox");
+const checkbox = document.getElementById("exampleCheck1");
 const alertDiv = '<div class="alert alert-danger" role="alert">';
 
+var i = 0;
 
+sessionStorage.setItem("state", "true"); // salvo il valore
 
 
 
@@ -43,8 +46,27 @@ function validate() {
 
             } else {
                 if (psw.value == "prova") {
-                    //console.log("verificato");
-                    return true;
+                    console.log("verificato");
+                    if (i % 2 == 0) {
+                        console.log("stateless")
+                        return true; // torna vero
+                    }
+                    else {
+                        // login
+                        console.log("state");
+                        if (!sessionStorage.getItem('state')) {
+                            sessionStorage.setItem("state", "true"); // salvo il valore
+                            console.log(sessionStorage.getItem('state'));
+                            return true;
+                        }
+                        else {
+                            console.log("state già allocato");
+                            sessionStorage.clear();
+                            sessionStorage.setItem("state", "true"); // salvo il valore
+                            return true;
+                        }
+
+                    }
                 }
                 else {
                     ErrorBox.innerHTML = alertDiv + '<strong>Password sbagliata</strong>' + '</div>';
@@ -59,6 +81,10 @@ function validate() {
 
 }
 
+function ricordami() {
+    i++;
+    console.log("state = " + i);
+}
 
 /**
  * Head animated icon function
@@ -78,14 +104,12 @@ function takeoff() {
 /**
  * funzione per connettersi ai dispositivi bluetooth
  */
-function bluetoothConnetion() {
+async function bluetoothConnetion() {
     navigator.bluetooth.getAvailability().then((available) => {
         if (available) {
             console.log("On");
             navigator.bluetooth.requestDevice({
                 acceptAllDevices: true
-            }).then((list) => {
-                console.log(list);
             })
         }
         else
