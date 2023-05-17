@@ -1,6 +1,6 @@
 
 console.log("ciao da javascript esterno");
-window.setTimeout(timer, 5000);
+window.setTimeout(timer, 5000); // imposto il timer ogni 5 secondi
 
 /**
  * timer
@@ -9,20 +9,28 @@ window.setTimeout(timer, 5000);
 function timer() {
     //console.clear()
 }
-const textEmail = document.getElementById("exampleInputEmail1"); // textEmail
-const psw = document.getElementById("exampleInputPassword1");
-const ErrorBox = document.getElementById("ErrorBox");
-const checkbox = document.getElementById("exampleCheck1");
-const alertDiv = '<div class="alert alert-danger" role="alert">';
+const textEmail = document.getElementById("exampleInputEmail1"); // campo form Email
+const psw = document.getElementById("exampleInputPassword1"); // campo form psw
+const ErrorBox = document.getElementById("ErrorBox"); // campo per comunicare gli errori
+const checkbox = document.getElementById("exampleCheck1"); // check box form per state
+const alertDiv = '<div class="alert alert-danger" role="alert">'; // allert di errore
 
+const key = "Prova@Prova"; // chiave 
+const password = "prova"; // password
+
+// inizializzo il valore per rimanere memorizzato
 var i = 0;
 
+// da eliminare
 sessionStorage.setItem("state", "true"); // salvo il valore
 
 
-
+/**
+ * fuzione che valida i campi e li confronta con le credenziali
+ * @returns state form
+ */
 function validate() {
-    if ((textEmail.value == "") || (textEmail.value == "undefined")) // controllo se è vuota
+    if ((textEmail.value == "") || (textEmail.value == "undefined")) // controllo se manca la mail e lo comunico
     {
         ErrorBox.innerHTML = alertDiv + '<strong>Attento manca la mail</strong>' + '</div>';
         textEmail.focus();
@@ -33,19 +41,19 @@ function validate() {
     else {
         textEmail.style = "";
 
-        if (psw.value == "") {
+        if (psw.value == "") { // controllo se manca la password e lo comuncio 
             ErrorBox.innerHTML = alertDiv + '<strong>Attento manca la psw</strong>' + '</div>';
             psw.style = "border: 2px red solid; background-color:#DC6161";
             return false;
         }
         else {
-            if (textEmail.value != "Prova@Prova") {
+            if (textEmail.value != key) { // se la password corrisponde alla key
                 ErrorBox.innerHTML = alertDiv + '<strong>Email sbagliata</strong>' + '</div>';
                 textEmail.style = "border: 2px red solid; background-color:#DC6161;";
                 return false
 
             } else {
-                if (psw.value == "prova") {
+                if (psw.value == password) {
                     console.log("verificato");
                     if (i % 2 == 0) {
                         console.log("stateless")
@@ -54,16 +62,16 @@ function validate() {
                     else {
                         // login
                         console.log("state");
-                        if (!sessionStorage.getItem('state')) {
+                        if (!sessionStorage.getItem('state')) { // controllo se il valore di stato non è già stato creato 
                             sessionStorage.setItem("state", "true"); // salvo il valore
                             console.log(sessionStorage.getItem('state'));
-                            return true;
+                            return true; // torna vero
                         }
-                        else {
+                        else { // se è stato creato, lo comunico, lo svuoto e lo risalvo
                             console.log("state già allocato");
                             sessionStorage.clear();
                             sessionStorage.setItem("state", "true"); // salvo il valore
-                            return true;
+                            return true; // torna vero
                         }
 
                     }
@@ -81,9 +89,12 @@ function validate() {
 
 }
 
+/**
+ * funzione che modifica lo stato[ricordami]
+ */
 function ricordami() {
     i++;
-    console.log("state = " + i);
+    console.log("state = " + i); // comunico alla console
 }
 
 /**
@@ -108,7 +119,7 @@ async function bluetoothConnetion() {
     navigator.bluetooth.getAvailability().then((available) => {
         if (available) {
             console.log("On");
-            navigator.bluetooth.requestDevice({
+            navigator.bluetooth.requestDevice({ // ricerco tutti i dispositivi disponibili
                 acceptAllDevices: true
             })
         }
