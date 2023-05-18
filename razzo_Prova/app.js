@@ -123,8 +123,8 @@ async function bluetoothConnetion() {
             console.log("On");
             navigator.bluetooth.requestDevice({ // ricerco tutti i dispositivi disponibili
                 filters: [{
-                    acceptAllDevices: true,
-                    services: ['00001101-0000-1000-8000-00805f9b34fb']
+                    acceptAllDevices: true
+                    //services: ['00001101-0000-1000-8000-00805f9b34fb']
                 }]
 
             }).then(device => {
@@ -137,6 +137,29 @@ async function bluetoothConnetion() {
             console.log("off");
     });
 }
+
+
+/* 
+//REQUEST battery level
+navigator.bluetooth.requestDevice({ filters: [{ services: ['battery_service'] }] })
+.then(device => device.gatt.connect())
+.then(server => {
+  // Getting Battery Service…
+  return server.getPrimaryService('battery_service');
+})
+.then(service => {
+  // Getting Battery Level Characteristic…
+  return service.getCharacteristic('battery_level');
+})
+.then(characteristic => {
+  // Reading Battery Level…
+  return characteristic.readValue();
+})
+.then(value => {
+  console.log(`Battery percentage is ${value.getUint8(0)}`);
+})
+.catch(error => { console.error(error); });
+// */
 
 bluetoothConnetion();
 takeoff();
