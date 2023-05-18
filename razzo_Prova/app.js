@@ -18,6 +18,8 @@ const alertDiv = '<div class="alert alert-danger" role="alert">'; // allert di e
 const key = "Prova@Prova"; // chiave 
 const password = "prova"; // password
 
+var gatt;
+
 // inizializzo il valore per rimanere memorizzato
 var i = 0;
 
@@ -120,9 +122,16 @@ async function bluetoothConnetion() {
         if (available) {
             console.log("On");
             navigator.bluetooth.requestDevice({ // ricerco tutti i dispositivi disponibili
-                acceptAllDevices: true,
-                optionalServices: ['battery_service']
+                filters: [{
+                    acceptAllDevices: true,
+                    services: ['00001101-0000-1000-8000-00805f9b34fb']
+                }]
+
+            }).then(device => {
+                console.log(device.name);
+                gatt = device.gatt.connect(); // mi copio il nome del device
             })
+                .catch(error => { console.error(error) });
         }
         else
             console.log("off");
