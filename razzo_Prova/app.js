@@ -121,7 +121,7 @@ async function bluetoothConnetion() {
             console.log("On");
             navigator.bluetooth.requestDevice({ // ricerco tutti i dispositivi disponibili
                 acceptAllDevices: true,
-                namePrefix: "IPhone di Alessandro (2)"
+                optionalServices: ['battery_service']
             })
         }
         else
