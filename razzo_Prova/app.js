@@ -131,7 +131,7 @@ async function bluetoothConnetion() {
                 console.log(device.name);
                 gatt = device.gatt.connect(); // mi copio il nome del device
             })
-                .catch(error => { console.error(error) });
+                .catch(error => { console.log(error) });
         }
         else
             console.log("off");
