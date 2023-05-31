@@ -118,7 +118,10 @@ function takeoff() {
  * funzione per connettersi ai dispositivi bluetooth
  */
 async function bluetoothConnetion() {
-    navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+    navigator.bluetooth.requestDevice({ filters:[
+        {name: ["HC-05"]}
+        
+]})
     .then(device => device.gatt.connect())
     .then(value => {
     value.writeValueWithoutResponse("prova");
