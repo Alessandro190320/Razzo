@@ -118,7 +118,14 @@ function takeoff() {
  * funzione per connettersi ai dispositivi bluetooth
  */
 async function bluetoothConnetion() {
-    navigator.bluetooth.getAvailability().then((available) => {
+    navigator.bluetooth.requestDevice({ acceptAllDevices: true })
+    .then(device => device.gatt.connect())
+    .then(value => {
+    value.writeValueWithoutResponse("prova");
+})
+.catch(error => { console.log(error); });
+    
+    /*navigator.bluetooth.getAvailability().then((available) => {
         if (available) {
             console.log("On");
             navigator.bluetooth.requestDevice({ // ricerco tutti i dispositivi disponibili
@@ -135,7 +142,7 @@ async function bluetoothConnetion() {
         }
         else
             console.log("off");
-    });
+    });*/
 }
 
 
