@@ -117,6 +117,22 @@ function takeoff() {
 /**
  * funzione per connettersi ai dispositivi bluetooth
  */
+
+var device;
+if(typeof device == 'undefined'){
+   device = await navigator.bluetooth.requestDevice();
+}
+
+async function bluetoothConnetion(){
+        device.gatt.connect()
+        .then(connected => {
+            connected.writeValueWithoutResponse("prova");
+        })
+        .catch( error => {console.error(error);})
+           
+        
+}
+/*
 async function bluetoothConnetion() {
     navigator.bluetooth.requestDevice({ filters:[
         {name: ["HC-05"]}
@@ -128,7 +144,7 @@ async function bluetoothConnetion() {
 })
 .catch(error => { console.log(error); });
     
-    /*navigator.bluetooth.getAvailability().then((available) => {
+    navigator.bluetooth.getAvailability().then((available) => {
         if (available) {
             console.log("On");
             navigator.bluetooth.requestDevice({ // ricerco tutti i dispositivi disponibili
@@ -145,9 +161,9 @@ async function bluetoothConnetion() {
         }
         else
             console.log("off");
-    });*/
+    });
 }
-
+*/
 
 /* 
 //REQUEST battery level
