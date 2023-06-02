@@ -122,7 +122,7 @@ function takeoff() {
 // if(typeof device == 'undefined'){
 //    device = await navigator.bluetooth.requestDevice({acceptAllDevices:true});
 // }
-
+const encoder = new TextEncoder("utf-8");
 async function bluetoothConnetion(){
     
         device = await navigator.bluetooth.requestDevice({
@@ -132,7 +132,8 @@ async function bluetoothConnetion(){
      
     device.gatt.connect()
     .then(connected => {
-            connected.writeValueWithoutResponse("prova");
+        var prova = encoder.encode("prova")
+        connected.writeValueWithoutResponse(prova);
     })
     .catch( err => {console.error(err);})
            
