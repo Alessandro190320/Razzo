@@ -129,12 +129,13 @@ async function bluetoothConnetion(){
             acceptAllDevices:true
         });
         console.log("non è andato");
+        console.log(device.name);
      }
     device.gatt.connect()
     .then(connected => {
             connected.writeValueWithoutResponse("prova");
     })
-    .catch( error => {console.error(error);})
+    .catch( err => {console.error(err);})
            
         
 }
