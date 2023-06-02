@@ -118,7 +118,7 @@ function takeoff() {
  * funzione per connettersi ai dispositivi bluetooth
  */
 
-var device = await navigator.bluetooth.requestDevice();;
+var device = await navigator.bluetooth.requestDevice(options.acceptAllDevices);;
 if(typeof device == 'undefined'){
    device = await navigator.bluetooth.requestDevice();
 }
@@ -126,6 +126,7 @@ if(typeof device == 'undefined'){
 async function bluetoothConnetion(){
     if(typeof device == 'undefined'){
         device = await navigator.bluetooth.requestDevice();
+        console.log("non è andato");
      }
         device.gatt.connect()
         .then(connected => {
