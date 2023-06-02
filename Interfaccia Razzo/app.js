@@ -124,13 +124,12 @@ function takeoff() {
 // }
 
 async function bluetoothConnetion(){
-    if(typeof device == 'undefined'){
+    
         device = await navigator.bluetooth.requestDevice({
             acceptAllDevices:true
         });
-        console.log("non è andato");
         console.log(device.name);
-     }
+     
     device.gatt.connect()
     .then(connected => {
             connected.writeValueWithoutResponse("prova");
