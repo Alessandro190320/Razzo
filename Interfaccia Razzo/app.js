@@ -118,14 +118,14 @@ function takeoff() {
  * funzione per connettersi ai dispositivi bluetooth
  */
 
-var device = await navigator.bluetooth.requestDevice(options.acceptAllDevices);;
+var device = await navigator.bluetooth.requestDevice(options.acceptAllDevices);
 if(typeof device == 'undefined'){
-   device = await navigator.bluetooth.requestDevice();
+   device = await navigator.bluetooth.requestDevice(options.acceptAllDevices);
 }
 
 async function bluetoothConnetion(){
     if(typeof device == 'undefined'){
-        device = await navigator.bluetooth.requestDevice();
+        device = await navigator.bluetooth.requestDevice(options.acceptAllDevices);
         console.log("non è andato");
      }
         device.gatt.connect()
