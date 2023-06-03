@@ -1,16 +1,33 @@
-#include <AccelStepper.h>
+#include <Stepper.h>
 
-AccelStepper stepper(AccelStepper::DRIVER,2,4);
+#define STEPS 200
 
-void setup()
-{
-  pinMode(8,OUTPUT);
-  digitalWrite(8,LOW);
-  stepper.setMaxSpeed(4000);
-  stepper.setSpeed(4000);
+const int dirPin = 4;
+const int stepPin = 2;
+const int enPin = 8;
+#define motorInterfaceType 1;
+
+Stepper myStepper(STEPS, 4, 2);
+
+
+void setup() {
+  // put your setup code here, to run once:
+
+  myStepper.setSpeed(1000);
+  pinMode( enPin ,OUTPUT);
+  digitalWrite( enPin , LOW);
 }
 
-void loop()
-{
-  stepper.runSpeed();
+void loop() {
+  // put your main code here, to run repeatedly:
+  
+  //myStepper.step(10);
+  myStepper.step(-STEPS);
+  /*if(cnt < 10)
+    myStepper.step(10);
+
+  else
+    myStepper.step(-10);
+
+   cnt++;+*/
 }
