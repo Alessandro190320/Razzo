@@ -123,21 +123,21 @@ function takeoff() {
 //    device = await navigator.bluetooth.requestDevice({acceptAllDevices:true});
 // }
 const encoder = new TextEncoder("utf-8");
-async function bluetoothConnetion(){
-    
-        device = await navigator.bluetooth.requestDevice({
-            acceptAllDevices:true
-        });
-        console.log(device.name);
-     
+async function bluetoothConnetion() {
+
+    device = await navigator.bluetooth.requestDevice({
+        acceptAllDevices: true
+    });
+    console.log(device.name);
+
     device.gatt.connect()
-    .then(connected => {
-        var prova = encoder.encode("prova")
-        connected.writeValueWithoutResponse(prova);
-    })
-    .catch( err => {console.error(err);})
-           
-        
+        .then(connected => {
+            var prova = encoder.encode("prova")
+            connected.writeValue(prova);
+        })
+        .catch(err => { console.error(err); })
+
+
 }
 /*
 async function bluetoothConnetion() {
