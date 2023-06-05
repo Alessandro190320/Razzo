@@ -4,7 +4,7 @@ Codice per gestire il modellino del razzo tramite un interfaccia web che si andr
 ![Alt](https://repobeats.axiom.co/api/embed/1b67c42bd20593da2d45d44e954895192871a83f.svg "Repobeats analytics image")
 
 # Foto razzo 
-![Foto Razzo](https://drive.google.com/file/d/1kvKd84ZoEEPQaDxVgLS8I_wEJlgZq12u/view?usp=sharing)
+![Foto Razzo](https://github.com/Alessandro190320/Razzo/blob/3f246fe1bbcea0a1faef0f57d5c04af085fe55b2/Arduino/Foto%20Razzo.JPG)
 
 
 # Schema elettrico
